@@ -1,4 +1,3 @@
-import React from 'react';
 import xhrService from './xhr.service';
 
 describe('XHRService', () => {
