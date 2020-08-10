@@ -60,6 +60,7 @@ module.exports = {
     'arrow-parens': ['error', 'always'],
     '@typescript-eslint/no-inferrable-types': 0,
     'operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
+    'react/prop-types': 0,
   },
   overrides: [
     {
