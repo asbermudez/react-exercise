@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import './Home.less';
+import './Home.scss';
 import FilmList from '../../components/film-list/FilmList';
 
 function Home(): ReactElement {

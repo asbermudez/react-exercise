@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './less/index.less';
+import './scss/index.scss';
 import Home from './pages/home/Home';
 
 ReactDOM.render(
