@@ -49,11 +49,13 @@ const FilmList: FunctionComponent = () => {
 
   return (
     <section className="film-list">
-      {_map(columns, (title, key) => (
-        <div key={key} className="film-list__header">
-          {title}
-        </div>
-      ))}
+      <header className="film-row film-list__header">
+        {_map(columns, (title, key) => (
+          <div className="film-list__column" key={key}>
+            {title}
+          </div>
+        ))}
+      </header>
       {showStatusMessage(loadStatus)}
       {filmList.map((film) => (
         <FilmRow key={film.id} film={film} columns={columns} />

@@ -19,7 +19,7 @@ const FilmRow: FunctionComponent<{ film: Film; columns: Partial<Record<keyof Fil
   return (
     <div className="film-row" onClick={openDetails} role="presentation">
       {_map(filmReduced, (value, column) => (
-        <div key={column} className={`film-row__${column}`}>
+        <div key={column} className={`film-row__cell film-row__${column}`}>
           {value}
         </div>
       ))}

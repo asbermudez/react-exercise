@@ -1,0 +1,28 @@
+.film-row {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr 2fr 1fr 1fr;
+  transition: background-color ease-in 0.2s;
+
+  &:nth-child(even) {
+    background-color: #c0ede3;
+  }
+
+  &:hover {
+    background-color: #60d2b9;
+    cursor: pointer;
+  }
+
+  &#{&}--selected {
+    background-color: #2d9f86;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  &__cell {
+    word-wrap: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 10px 20px;
+  }
+}
