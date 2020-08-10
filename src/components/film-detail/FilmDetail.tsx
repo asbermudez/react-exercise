@@ -20,38 +20,40 @@ const FilmDetail: FunctionComponent<{ id: string; onClose: () => void }> = ({ id
     fetch();
   }, [id]);
 
-  function renderArticle(): ReactElement | void {
+  function renderArticle(): ReactElement | undefined {
     if (film && loadStatus === LoadStatus.DONE) {
-      const { title, release_date, director, producer, description, rt_score } = film;
+      const { title, release_date: releaseDate, director, producer, description, rt_score: rtScore } = film;
       return (
         <>
           <header className="film-detail__header">
             <h1 className="film-detail__title">
-              {title} ({release_date})
+              {title} ({releaseDate})
             </h1>
             <div className="film-detail__close" onClick={onClose} role="presentation">
               Close
             </div>
           </header>
           <section className="film-detail__info">
-            <label className="film-detail__info-label">Director</label>
+            <span className="film-detail__info-label">Director</span>
             {director}
           </section>
           <section className="film-detail__info">
-            <label className="film-detail__info-label">Producer</label>
+            <span className="film-detail__info-label">Producer</span>
             {producer}
           </section>
           <section className="film-detail__info film-detail__info--description">
-            <label className="film-detail__info-label">Description</label>
+            <span className="film-detail__info-label">Description</span>
             {description}
           </section>
           <section className="film-detail__score">
-            <label className="film-detail__score-label">Rating</label>
-            {rt_score}/100
+            <span className="film-detail__score-label">Rating</span>
+            {rtScore}/100
           </section>
         </>
       );
     }
+
+    return undefined;
   }
 
   return (
