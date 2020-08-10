@@ -7,9 +7,14 @@ const FilmRow: FunctionComponent<{ film: FilmDTO }> = ({ film: filmDTO }) => {
   useEffect(() => {
     const { id, title, description, director, producer, release_date, rt_score } = filmDTO;
     setFilm({ id, title, description, director, producer, release_date, rt_score });
-  });
+  }, [filmDTO]);
+
+  const openDetails = () => {
+    console.log(filmDTO.id);
+  };
+
   return (
-    <div className="film-row">
+    <div className="film-row" onClick={openDetails}>
       {_map(film, (value, column) => (
         <div key={column} className={`film-row__${column}`}>
           {value}

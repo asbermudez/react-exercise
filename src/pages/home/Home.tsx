@@ -1,12 +1,17 @@
 import React, { ReactElement } from 'react';
-import './Home.css';
+import './Home.less';
 import FilmList from '../../components/film-list/FilmList';
 
 function Home(): ReactElement {
   return (
-    <div className="App">
-      <FilmList />
-    </div>
+    <>
+      <div className="home">
+        <header className="home__header">
+          <h2 className="home__title">Ghibli film DB</h2>
+        </header>
+        <FilmList children="home__body" />
+      </div>
+    </>
   );
 }
 
