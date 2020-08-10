@@ -9,7 +9,7 @@ function Home(): ReactElement {
         <header className="home__header">
           <h2 className="home__title">Ghibli film DB</h2>
         </header>
-        <FilmList children="home__body" />
+        <FilmList />
       </div>
     </>
   );

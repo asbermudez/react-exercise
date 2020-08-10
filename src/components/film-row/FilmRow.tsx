@@ -1,21 +1,24 @@
+import './FilmRow.scss';
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { Film, FilmDTO } from '../../types';
-import { map as _map } from 'lodash';
+import { keys as _keys, pick as _pick, map as _map } from 'lodash';
+import { Film } from '../../types';
 
-const FilmRow: FunctionComponent<{ film: FilmDTO }> = ({ film: filmDTO }) => {
-  const [film, setFilm] = useState<Film>();
+const FilmRow: FunctionComponent<{ film: Film; columns: Partial<Record<keyof Film, string>> }> = ({
+  film,
+  columns,
+}) => {
+  const [filmReduced, setFilmReduced] = useState<Partial<Film>>();
   useEffect(() => {
-    const { id, title, description, director, producer, release_date, rt_score } = filmDTO;
-    setFilm({ id, title, description, director, producer, release_date, rt_score });
-  }, [filmDTO]);
+    setFilmReduced(_pick(film, _keys(columns)));
+  }, [film, columns]);
 
   const openDetails = () => {
-    console.log(filmDTO.id);
+    console.log(film.id);
   };
 
   return (
-    <div className="film-row" onClick={openDetails}>
-      {_map(film, (value, column) => (
+    <div className="film-row" onClick={openDetails} role="presentation">
+      {_map(filmReduced, (value, column) => (
         <div key={column} className={`film-row__${column}`}>
           {value}
         </div>
