@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './Home.css';
 
-function App(): ReactElement {
+function Home(): ReactElement {
   return (
     <div className="App">
       <header className="App-header">
@@ -18,4 +18,4 @@ function App(): ReactElement {
   );
 }
 
-export default App;
+export default Home;

@@ -35,7 +35,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'import/prefer-default-export': 0,
     // https://stackoverflow.com/a/55863857
-    'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*.spec.ts'] }],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*.test.tsx'] }],
     'class-methods-use-this': 0,
     'max-len': [
       'error',
@@ -63,7 +63,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.spec.{j,t}s?(x)'],
+      files: ['**/*.test.{j,t}s?(x)'],
       env: { jest: true },
     },
   ],
