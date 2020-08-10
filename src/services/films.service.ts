@@ -1,15 +1,15 @@
-import { FilmDTO } from '../types';
+import { Film } from '../types';
 import xhrService from './xhr.service';
 
 class FilmsService {
   readonly APIUrl = 'https://ghibliapi.herokuapp.com';
 
-  async getFilms(): Promise<FilmDTO[]> {
-    return xhrService.get<FilmDTO[]>(`${this.APIUrl}/films`);
+  async getFilms(): Promise<Film[]> {
+    return xhrService.get<Film[]>(`${this.APIUrl}/films`);
   }
 
-  async getFilm(id: string): Promise<FilmDTO> {
-    return xhrService.get<FilmDTO>(`${this.APIUrl}/films/${id}`);
+  async getFilm(id: string): Promise<Film> {
+    return xhrService.get<Film>(`${this.APIUrl}/films/${id}`);
   }
 }
 

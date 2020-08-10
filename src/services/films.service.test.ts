@@ -11,6 +11,11 @@ describe('FilmsService', () => {
     producer: 'mockProducer',
     release_date: 'mockReleaseDate',
     rt_score: 'mockScore',
+    locations: [],
+    people: [],
+    species: [],
+    vehicles: [],
+    url: '',
   };
   describe('getFilms', () => {
     beforeEach(() => {
