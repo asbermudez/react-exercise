@@ -33,6 +33,11 @@
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(4, auto);
     gap: 10px;
+
+    .loader {
+      grid-column: span 6;
+      min-width: 460px;
+    }
   }
 
   &__header {

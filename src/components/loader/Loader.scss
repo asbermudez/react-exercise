@@ -1,0 +1,42 @@
+.loader {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &#{&}--SUCCESS {
+    display: none;
+  }
+
+  &__warning {
+    text-align: center;
+  }
+
+  &__warning-icon,
+  &__spinner {
+    width: 50px;
+    height: 50px;
+  }
+
+  &__warning-icon {
+    display: block;
+    margin: 0 auto 10px;
+    path,
+    circle {
+      fill: #9f2d2d;
+    }
+  }
+
+  &__spinner {
+    -webkit-animation: rotate-center 1s ease-in-out infinite both;
+    animation: rotate-center 1s ease-in-out infinite both;
+
+    path,
+    circle {
+      fill: #2d9f86;
+    }
+  }
+}

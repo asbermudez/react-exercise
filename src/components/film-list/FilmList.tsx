@@ -5,12 +5,7 @@ import { Film } from '../../types';
 import filmsService from '../../services/films.service';
 import FilmRow from '../film-row/FilmRow';
 import FilmDetail from '../film-detail/FilmDetail';
-
-export enum LoadStatus {
-  DONE = 'SUCCESS',
-  LOADING = 'LOADING',
-  ERROR = 'ERROR',
-}
+import Loader, { LoadStatus } from '../loader/Loader';
 
 const FilmList: FunctionComponent = () => {
   const [filmList, setFilmList] = useState<Film[]>([]);
@@ -38,17 +33,6 @@ const FilmList: FunctionComponent = () => {
     fetch();
   }, []);
 
-  function renderStatusMessage(status: LoadStatus): ReactElement | undefined {
-    switch (status) {
-      case LoadStatus.ERROR:
-        return <div>Error</div>;
-      case LoadStatus.LOADING:
-        return <div>Loading</div>;
-      default:
-        return undefined;
-    }
-  }
-
   function renderModal(): ReactElement | undefined {
     return selectedFilm ? <FilmDetail id={selectedFilm} onClose={() => setSelectedFilm(undefined)} /> : undefined;
   }
@@ -63,7 +47,7 @@ const FilmList: FunctionComponent = () => {
             </div>
           ))}
         </header>
-        {renderStatusMessage(loadStatus)}
+        <Loader status={loadStatus} />
         {filmList.map((film) => (
           <FilmRow
             key={film.id}
