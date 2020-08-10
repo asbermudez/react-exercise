@@ -37,21 +37,6 @@ describe('XHRService', () => {
       expect(global.fetch).toHaveBeenCalledWith(url, expectedRequestInit);
     });
 
-    it('should call fetch with the passed url and the proper parameters', async () => {
-      // GIVEN
-      const url = 'mockURL';
-      const params = { foo: 'bar', bar: 'foo' };
-      const expectedUrl = `${url}?foo=bar&bar=foo`;
-      const expectedRequestInit: RequestInit = { method: 'GET' };
-      jest.spyOn(global, 'fetch').mockResolvedValue(Promise.resolve(mockEmptyResponse as Response));
-
-      // WHEN
-      await xhrService.get(url, params);
-
-      // THEN
-      expect(global.fetch).toHaveBeenCalledWith(expectedUrl, expectedRequestInit);
-    });
-
     it('should return the parsed data from response', async () => {
       // GIVEN
       const url = 'mockURL';
@@ -62,6 +47,18 @@ describe('XHRService', () => {
 
       // THEN
       await expect(response).resolves.toEqual(mockDataReturn);
+    });
+
+    it('should return void promise on 204 response', async () => {
+      // GIVEN
+      const url = 'mockURL';
+      jest.spyOn(global, 'fetch').mockResolvedValue(Promise.resolve(mockEmptyResponse as Response));
+
+      // WHEN
+      const response = xhrService.get(url);
+
+      // THEN
+      await expect(response).resolves.toBeUndefined();
     });
 
     it('should reject and return response statusText if reponse is not ok', async () => {

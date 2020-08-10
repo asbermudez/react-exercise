@@ -1,8 +1,8 @@
 import { forEach as _forEach, reduce as _reduce } from 'lodash';
 
 class XHRService {
-  get<T>(url: string, params?: Record<string, unknown>): Promise<T> {
-    return fetch(`${url}${this.getUrlParams(params)}`, { method: 'GET' })
+  get<T>(url: string): Promise<T> {
+    return fetch(url, { method: 'GET' })
       .then(this.handleResponseStatus)
       .then((response) => this.parseResponse<T>(response));
   }
@@ -21,31 +21,6 @@ class XHRService {
       return Promise.resolve() as Promise<any>;
     }
     return response.json();
-  }
-
-  private getUrlParams(params: Record<string, unknown> = {}): string {
-    let urlParams = '';
-    let separator = '?';
-    _forEach(params, (param, key) => {
-      if (param !== undefined) {
-        urlParams = `${urlParams}${separator}${this.URIEncode(key, param)}`;
-        separator = '&';
-      }
-    });
-    return urlParams;
-  }
-
-  private URIEncode(key: string, param: unknown): string {
-    if (Array.isArray(param)) {
-      return _reduce(param, (query, item) => `${query}&${this.URIEncode(`${key}`, item)}`, '').replace(/^&/iu, '');
-    }
-    if (typeof param === 'object') {
-      return _reduce(param, (query, value, prop) => `${query}&${this.URIEncode(`${key}[${prop}]`, value)}`, '').replace(
-        /^&/iu,
-        '',
-      );
-    }
-    return `${key}=${encodeURIComponent(param as string | number | boolean)}`;
   }
 }
 
