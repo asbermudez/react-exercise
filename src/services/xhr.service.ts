@@ -1,5 +1,3 @@
-import { forEach as _forEach, reduce as _reduce } from 'lodash';
-
 class XHRService {
   get<T>(url: string): Promise<T> {
     return fetch(url, { method: 'GET' })

@@ -1,7 +1,6 @@
-import filmService from './films.service';
+import filmsService from './films.service';
 import { Film } from '../types';
 import xhrService from './xhr.service';
-import filmsService from './films.service';
 
 describe('FilmsService', () => {
   const mockFilm: Film = {
@@ -31,7 +30,7 @@ describe('FilmsService', () => {
 
       // THEN
       await expect(results).resolves.toEqual(list);
-      expect(xhrService.get).toHaveBeenCalledWith(`${filmService.APIUrl}/films`);
+      expect(xhrService.get).toHaveBeenCalledWith(`${filmsService.APIUrl}/films`);
     });
 
     it('should throw error if the URL call gets rejected', async () => {
@@ -62,7 +61,7 @@ describe('FilmsService', () => {
 
       // THEN
       await expect(results).resolves.toEqual(mockFilm);
-      expect(xhrService.get).toHaveBeenCalledWith(`${filmService.APIUrl}/films/${mockId}`);
+      expect(xhrService.get).toHaveBeenCalledWith(`${filmsService.APIUrl}/films/${mockId}`);
     });
 
     it('should throw error if the URL call gets rejected', async () => {
