@@ -57,7 +57,7 @@ module.exports = {
     'object-curly-newline': ['error', { multiline: true }],
     'function-paren-newline': 0,
     'implicit-arrow-linebreak': 0,
-    'arrow-parens': ['error', 'as-needed'],
+    'arrow-parens': ['error', 'always'],
     '@typescript-eslint/no-inferrable-types': 0,
     'operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
   },
