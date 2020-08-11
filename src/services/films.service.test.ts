@@ -1,22 +1,9 @@
 import filmsService from './films.service';
 import { Film } from '../types';
 import xhrService from './xhr.service';
+import { mockFilm } from '../mocks/index';
 
 describe('FilmsService', () => {
-  const mockFilm: Film = {
-    id: 'some',
-    title: 'mockTitle',
-    description: 'mockDescription',
-    director: 'mockDirector',
-    producer: 'mockProducer',
-    release_date: 'mockReleaseDate',
-    rt_score: 'mockScore',
-    locations: [],
-    people: [],
-    species: [],
-    vehicles: [],
-    url: '',
-  };
   describe('getFilms', () => {
     beforeEach(() => {
       jest.clearAllMocks();
