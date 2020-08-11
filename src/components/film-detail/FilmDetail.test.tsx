@@ -6,8 +6,6 @@ import filmsService from '../../services/films.service';
 import { executeAsync } from '../../test-utils';
 import { LoadStatus } from '../loader/Loader';
 
-jest.spyOn(React, 'useEffect').mockImplementation((f) => f());
-
 describe('FilmDetail component', () => {
   beforeEach(() => {
     jest.clearAllMocks();

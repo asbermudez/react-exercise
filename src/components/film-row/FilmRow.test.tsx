@@ -5,14 +5,12 @@ import FilmRow from './FilmRow';
 import { mockFilm } from '../../mocks';
 import { Film } from '../../types';
 
-jest.spyOn(React, 'useEffect').mockImplementation((f) => f());
-
-describe('FilmDetail component', () => {
+describe('FilmRow component', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  it('should render only the columns passed', async () => {
+  it('should render only the columns passed', () => {
     // GIVEN
     const columns: Partial<Record<keyof Film, string>> = {
       title: '',
@@ -32,7 +30,7 @@ describe('FilmDetail component', () => {
     });
   });
 
-  it('should render selected if selected is equal to id', async () => {
+  it('should render selected if selected is equal to id', () => {
     // GIVEN
     const wrapper = mount(<FilmRow film={mockFilm} columns={{}} onClick={jest.fn()} selected={mockFilm.id} />);
 
@@ -43,7 +41,7 @@ describe('FilmDetail component', () => {
     expect(wrapper.find('.film-row.film-row--selected').length).toBe(1);
   });
 
-  it('should call onClick prop if row is clicked', async () => {
+  it('should call onClick prop if row is clicked', () => {
     // GIVEN
     const onClick = jest.fn();
     const wrapper = mount(<FilmRow film={mockFilm} columns={{}} onClick={onClick} />);
