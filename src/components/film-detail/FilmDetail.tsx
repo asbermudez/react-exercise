@@ -29,7 +29,7 @@ const FilmDetail: FunctionComponent<{ id: string; onClose: () => void }> = ({ id
             <h1 className="film-detail__title" id="title">
               {title} ({releaseDate})
             </h1>
-            <div className="film-detail__close" onClick={onClose} role="presentation">
+            <div id="close" className="film-detail__close" onClick={onClose} role="presentation">
               Close
             </div>
           </header>
@@ -58,7 +58,7 @@ const FilmDetail: FunctionComponent<{ id: string; onClose: () => void }> = ({ id
 
   return (
     <div className="film-detail">
-      <div className="film-detail__background" role="presentation" onClick={onClose} />
+      <div id="background" className="film-detail__background" role="presentation" onClick={onClose} />
       <article className="film-detail__modal">
         <Loader status={loadStatus} />
         {renderArticle()}
