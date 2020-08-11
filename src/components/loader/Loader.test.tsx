@@ -1,8 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Loader, { LoadStatus } from './Loader';
-import { mockFilm } from '../../mocks';
-import { Film } from '../../types';
 
 jest.spyOn(React, 'useEffect').mockImplementation((f) => f());
 
