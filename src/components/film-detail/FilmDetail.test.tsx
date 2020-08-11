@@ -1,9 +1,8 @@
 import React from 'react';
+import { mount } from 'enzyme';
 import FilmDetail from './FilmDetail';
 import { mockFilm } from '../../mocks';
 import filmsService from '../../services/films.service';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 import { executeAsync } from '../../test-utils';
 import { LoadStatus } from '../loader/Loader';
 
@@ -19,7 +18,7 @@ describe('FilmDetail component', () => {
     const mockId = 'mockId';
     jest.spyOn(filmsService, 'getFilm').mockResolvedValue(Promise.resolve(mockFilm));
     const wrapper = mount(<FilmDetail id={mockId} onClose={jest.fn()} />);
-    expect(wrapper.find(`.loader.loader--${LoadStatus.LOADING}`));
+    expect(wrapper.find(`.loader.loader--${LoadStatus.LOADING}`).length).toBe(1);
 
     // WHEN
     await executeAsync();

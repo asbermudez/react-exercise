@@ -23,7 +23,7 @@ const FilmRow: FunctionComponent<{
   return (
     <div className={`film-row ${selectedClass}`} onClick={() => onClick(film.id)} role="presentation">
       {_map(filmReduced, (value, column) => (
-        <div key={column} className={`film-row__cell film-row__${column}`}>
+        <div key={column} className={`film-row__cell film-row__cell--${column}`}>
           {value}
         </div>
       ))}
