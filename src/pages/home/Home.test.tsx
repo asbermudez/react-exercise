@@ -1,8 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Home from './Home';
-import filmsService from '../../services/films.service';
-import { executeAsync } from '../../test-utils';
 
 jest.spyOn(React, 'useEffect').mockImplementation((f) => f());
 

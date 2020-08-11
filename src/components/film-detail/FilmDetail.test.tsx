@@ -31,6 +31,8 @@ describe('FilmDetail component', () => {
     expect(wrapper.find('#rating').text()).toBe(`Rating${mockFilm.rt_score}/100`);
   });
 
+  // I haven't been able to make the rejection test work with the useEffect
+  // I do leave it with skip so you can see my approach to it
   it.skip('should not render if fetching fails', async () => {
     // GIVEN
     jest.spyOn(filmsService, 'getFilm').mockRejectedValue(Promise.reject());
