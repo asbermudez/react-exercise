@@ -26,26 +26,26 @@ const FilmDetail: FunctionComponent<{ id: string; onClose: () => void }> = ({ id
       return (
         <>
           <header className="film-detail__header">
-            <h1 className="film-detail__title">
+            <h1 className="film-detail__title" id="title">
               {title} ({releaseDate})
             </h1>
             <div className="film-detail__close" onClick={onClose} role="presentation">
               Close
             </div>
           </header>
-          <section className="film-detail__info">
+          <section className="film-detail__info" id="director">
             <span className="film-detail__info-label">Director</span>
             {director}
           </section>
-          <section className="film-detail__info">
+          <section className="film-detail__info" id="producer">
             <span className="film-detail__info-label">Producer</span>
             {producer}
           </section>
-          <section className="film-detail__info film-detail__info--description">
+          <section className="film-detail__info film-detail__info--description" id="description">
             <span className="film-detail__info-label">Description</span>
             {description}
           </section>
-          <section className="film-detail__score">
+          <section className="film-detail__score" id="rating">
             <span className="film-detail__score-label">Rating</span>
             {rtScore}/100
           </section>
